@@ -12,6 +12,7 @@
   background-color: $color-black;
   background-image: url("../images/pattern.png");
   background-repeat: repeat;
+  z-index: 9000;
 
   &__logo-container {
     display: flex;

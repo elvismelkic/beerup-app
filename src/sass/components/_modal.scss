@@ -1,0 +1,84 @@
+.modal {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  padding: 0 5rem;
+  background-color: $color-white;
+  border-radius: 0.5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.4s ease-out;
+  z-index: 9999;
+
+  &--active {
+    width: 60rem;
+    height: 50rem;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__heart {
+    font-size: 2rem;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    cursor: pointer;
+  }
+
+  &__exit {
+    color: $color-primary;
+    font-size: 2.5rem;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+  }
+
+  &__img-container {
+    width: 33.3333%;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    height: 80%;
+    transition: all 0.6s ease-out;
+  }
+
+  &__name {
+    font-size: 3rem;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &__info {
+    width: 66.6667%;
+    padding-left: 5rem;
+  }
+
+  &__info-row {
+    margin: 0.5rem 0;
+  }
+
+  &__info-name {
+    display: inline-block;
+    color: $color-grey;
+    width: 5rem;
+  }
+
+  &__info-description {
+    color: $color-grey;
+    line-height: 2;
+  }
+}

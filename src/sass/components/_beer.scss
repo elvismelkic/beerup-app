@@ -1,0 +1,61 @@
+.beer {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    width: 15rem;
+    height: 15rem;
+    margin: 1rem;
+    padding: 0 2rem;
+    background-color: $color-white;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.2s ease-out;
+    backface-visibility: hidden;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0.4rem 0.4rem 0.4rem rgba($color-black, 0.15);
+    }
+  }
+
+  &__img-container {
+    width: 33.3333%;
+    height: 15rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__img {
+    height: 80%;
+  }
+
+  &__name {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &__info {
+    width: 66.6667%;
+    padding-left: 0.8rem;
+  }
+
+  &__info-row {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info-name {
+    color: $color-grey;
+  }
+}

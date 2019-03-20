@@ -10,7 +10,7 @@ import pinterest from "../images/pininterest.svg";
 export default class Footer extends Component {
   render() {
     return (
-      <div className="footer">
+      <footer className="footer">
         <div className="footer__row">
           <NavLink to="/" className="footer__logo-container" exact>
             <img
@@ -82,7 +82,7 @@ export default class Footer extends Component {
         </div>
         <br />
         <p className="footer__copyright">&copy; 2019 All rights reserved.</p>
-      </div>
+      </footer>
     );
   }
 }

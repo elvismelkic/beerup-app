@@ -9,9 +9,12 @@
 @import "base/typography";
 @import "base/utilities";
 
+@import "components/beer";
 @import "components/button";
+@import "components/modal";
 @import "components/nav";
 
 @import "layout/container";
 @import "layout/footer";
 @import "layout/header";
+@import "layout/main";
