@@ -1,0 +1,74 @@
+.footer {
+  margin: 7rem 0;
+
+  &__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 4rem;
+    border-bottom: solid 2px rgba($color-primary, 0.15);
+  }
+
+  &__logo-container {
+    width: 33.3333%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    &-part1 {
+      height: 2rem;
+      margin-right: 1rem;
+    }
+
+    &-part2 {
+      height: 2rem;
+      transform: translateY(2px);
+    }
+  }
+
+  &__list {
+    width: 33.3333%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &--center {
+      justify-content: center;
+    }
+
+    &--end {
+      justify-content: flex-end;
+    }
+  }
+
+  &__item {
+    width: 13rem;
+    text-align: center;
+  }
+
+  &__link {
+    color: $color-grey-light;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem 0;
+    margin: 2rem;
+
+    &--widen {
+      margin: 2rem 0 2rem 6rem;
+    }
+  }
+
+  &__icon {
+    height: 1.7rem;
+  }
+
+  &__copyright {
+    font-size: 1rem;
+    color: $color-grey-light;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+}

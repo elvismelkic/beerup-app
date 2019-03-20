@@ -1,0 +1,34 @@
+.btn {
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 1.3rem 3.5rem;
+  margin: 2rem 0;
+  border: 3px solid $color-primary;
+  border-radius: 2.6rem;
+  cursor: pointer;
+  transition: all 0.1s linear;
+
+  &--transparent {
+    color: $color-white;
+    background-color: transparent;
+
+    &:hover {
+      color: $color-black;
+      background-color: $color-primary;
+    }
+  }
+
+  &--filled {
+    color: $color-black;
+    background-color: $color-primary;
+
+    &:hover {
+      color: $color-black;
+      background-color: lighten($color-primary, 20%);
+      border-color: lighten($color-primary, 20%);
+    }
+  }
+}

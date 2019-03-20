@@ -1,0 +1,22 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14rem;
+  background-color: $color-black;
+  background-image: url("../images/pattern.png");
+  background-repeat: repeat;
+
+  &__left,
+  &__right {
+    width: 40%;
+  }
+
+  &__left {
+    text-align: left;
+  }
+
+  &__right {
+    text-align: right;
+  }
+}
