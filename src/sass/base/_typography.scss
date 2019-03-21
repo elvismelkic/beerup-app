@@ -20,6 +20,15 @@ h6 {
   &--primary {
     margin: 4rem 0;
     font-size: 7rem;
+
+    @include respond(tab-land) {
+      font-size: 6rem;
+    }
+
+    @include respond(phone) {
+      font-size: 4rem;
+      line-height: 1;
+    }
   }
 
   &--secondary {

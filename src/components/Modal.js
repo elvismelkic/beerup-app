@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from "./Button";
 import emptyheart from "../images/heart outline.svg";
 
 export default class Modal extends Component {
@@ -34,6 +35,9 @@ export default class Modal extends Component {
               <p className="modal__info-row modal__info-description">
                 {beer.description}
               </p>
+              <Button fill={"filled"} parent={"modal"}>
+                Add to crate
+              </Button>
             </div>
           </div>
         )}

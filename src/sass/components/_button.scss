@@ -24,11 +24,29 @@
   &--filled {
     color: $color-black;
     background-color: $color-primary;
+  }
 
-    &:hover {
-      color: $color-black;
-      background-color: lighten($color-primary, 20%);
-      border-color: lighten($color-primary, 20%);
+  &--header {
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+
+    @include respond(tab-land) {
+      bottom: 20%;
+    }
+
+    @media only screen and (max-width: 65.625em) {
+      bottom: 15%;
+    }
+
+    @media only screen and (max-width: 59.375em) {
+      bottom: 10%;
+    }
+
+    @include respond(tab-port) {
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 90%);
     }
   }
 }

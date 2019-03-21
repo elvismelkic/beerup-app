@@ -2,14 +2,18 @@
   &__list {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+
+    @include respond(phone) {
+      justify-content: center;
+    }
   }
 
   &__card {
     width: 15rem;
     height: 15rem;
-    margin: 1rem;
+    margin: 1rem 2rem 1rem 0;
     padding: 0 2rem;
     background-color: $color-white;
     border-radius: 0.5rem;
@@ -18,7 +22,12 @@
     align-items: center;
     transition: all 0.2s ease-out;
     backface-visibility: hidden;
+    box-shadow: 0.2rem 0.2rem 0.3rem rgba($color-black, 0.25);
     cursor: pointer;
+
+    @include respond(phone) {
+      margin: 1rem;
+    }
 
     &:hover {
       transform: translateY(-2px);
@@ -35,22 +44,26 @@
   }
 
   &__img {
-    height: 80%;
+    height: 70%;
+  }
+
+  &__info {
+    width: 66.6667%;
+    padding-left: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &__name {
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 700;
-  }
-
-  &__info {
-    width: 66.6667%;
-    padding-left: 0.8rem;
+    margin: 0.3rem 0;
   }
 
   &__info-row {
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
     display: flex;
     justify-content: space-between;
   }

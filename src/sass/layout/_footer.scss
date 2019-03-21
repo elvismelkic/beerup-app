@@ -1,18 +1,49 @@
 .footer {
-  margin: 7rem 0;
+  width: 100%;
+  background-color: $color-black;
+  background-image: url("../images/pattern.png");
+  background-repeat: repeat;
+
+  &__container {
+    max-width: 100rem;
+    width: 90%;
+    margin: 0 auto;
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  &__cap {
+    position: absolute;
+    top: 0rem;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
 
   &__row {
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 4rem;
     border-bottom: solid 2px rgba($color-primary, 0.15);
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__logo-container {
     width: 33.3333%;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+
+    @include respond(tab-port) {
+      justify-content: center;
+      margin: 2rem;
+    }
   }
 
   &__logo {
@@ -35,16 +66,29 @@
 
     &--center {
       justify-content: center;
+      margin: 2rem;
+
+      @include respond(phone) {
+        flex-direction: column;
+      }
     }
 
     &--end {
       justify-content: flex-end;
+
+      @include respond(tab-port) {
+        justify-content: center;
+      }
     }
   }
 
   &__item {
     width: 13rem;
     text-align: center;
+
+    @include respond(phone) {
+      margin: 2rem;
+    }
   }
 
   &__link {
@@ -55,9 +99,18 @@
     text-decoration: none;
     padding: 1rem 0;
     margin: 2rem;
+    cursor: pointer;
 
     &--widen {
       margin: 2rem 0 2rem 6rem;
+
+      @include respond(tab-land) {
+        margin: 2rem 0 2rem 4rem;
+      }
+
+      @include respond(tab-port) {
+        margin: 2rem;
+      }
     }
   }
 
