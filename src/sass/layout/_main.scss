@@ -29,7 +29,14 @@
   &__crate {
     @include respond(phone) {
       width: 100%;
+      margin-top: 1rem;
     }
+  }
+
+  &__join {
+    max-width: 50rem;
+    width: 90%;
+    margin: 0 auto 5rem;
   }
 }
 

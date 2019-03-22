@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import Button from "./Button";
 import cap from "../images/cap.svg";
 import illustration from "../images/illustration.svg";
@@ -17,9 +18,11 @@ export default class Header extends Component {
           <div className="header__right">
             <img src={illustration} className="header__img" alt="logo" />
           </div>
-          <Button fill={"filled"} parent={"header"}>
-            Join beerup
-          </Button>
+          <NavLink to="/join" exact>
+            <Button fill={"filled"} parent={"header"}>
+              Join beerup
+            </Button>
+          </NavLink>
           <img src={cap} className="header__cap" alt="beer cap" />
         </div>
       </header>

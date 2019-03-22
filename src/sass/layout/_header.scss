@@ -5,6 +5,10 @@
   background-image: url("../images/pattern.png");
   background-repeat: repeat;
 
+  @include respond(tab-land) {
+    padding-top: 5rem;
+  }
+
   &__container {
     max-width: 100rem;
     width: 90%;
@@ -63,6 +67,11 @@
 
     @include respond(tab-port) {
       left: 67%;
+    }
+
+    @include respond(phone) {
+      width: 11%;
+      left: 85%;
     }
   }
 }

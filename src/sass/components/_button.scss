@@ -47,6 +47,46 @@
       bottom: 0;
       left: 50%;
       transform: translate(-50%, 90%);
+      font-size: 1.2rem;
+      padding: 1.3rem 3rem;
     }
+
+    @include respond(phone) {
+      width: 18rem;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 90%);
+      font-size: 1.2rem;
+      padding: 1.3rem 3rem;
+    }
+  }
+
+  &--mobile-nav {
+    font-size: 1.2rem;
+    padding: 1.3rem 3rem;
+  }
+
+  &--modal {
+    @include respond(phone) {
+      width: 20rem;
+      font-size: 1.2rem;
+      margin: 0;
+      padding: 1.3rem 3rem;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+
+  &--form {
+    width: 20rem;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 1.3rem 3rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
   }
 }

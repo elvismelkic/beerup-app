@@ -6,7 +6,7 @@
     flex-wrap: wrap;
 
     @include respond(phone) {
-      justify-content: center;
+      flex-wrap: nowrap;
     }
   }
 

@@ -11,7 +11,8 @@ export default class Main extends Component {
     beer: null,
     loading: true,
     error: null,
-    modalBeer: null
+    modalBeer: null,
+    activeCrate: "One"
   };
 
   updateBeer = async () => {
@@ -41,12 +42,19 @@ export default class Main extends Component {
     this.setState(() => ({ modalBeer: null }));
   };
 
+  handleCrateSelect = event => {
+    let crate = event.target.textContent;
+
+    this.setState(() => ({ activeCrate: crate }));
+  };
+
   componentDidMount() {
     this.updateBeer();
   }
 
   render() {
-    const { error, loading, beer, modalBeer } = this.state;
+    const { error, loading, beer, modalBeer, activeCrate } = this.state;
+    console.log(beer);
     return (
       <div>
         {error !== null ? (
@@ -76,9 +84,36 @@ export default class Main extends Component {
               <section className="main__crate">
                 <h2 className="main__heading">Crate</h2>
                 <ul className="crate__list">
-                  <li className="crate__item crate__item--active">One</li>
-                  <li className="crate__item">Two</li>
-                  <li className="crate__item">Three</li>
+                  <li
+                    className={
+                      activeCrate === "One"
+                        ? "crate__item crate__item--active"
+                        : "crate__item"
+                    }
+                    onClick={this.handleCrateSelect}
+                  >
+                    One
+                  </li>
+                  <li
+                    className={
+                      activeCrate === "Two"
+                        ? "crate__item crate__item--active"
+                        : "crate__item"
+                    }
+                    onClick={this.handleCrateSelect}
+                  >
+                    Two
+                  </li>
+                  <li
+                    className={
+                      activeCrate === "Three"
+                        ? "crate__item crate__item--active"
+                        : "crate__item"
+                    }
+                    onClick={this.handleCrateSelect}
+                  >
+                    Three
+                  </li>
                 </ul>
                 <div className="crate__img-container">
                   <img src={crate} alt="crate" className="crate__img" />
