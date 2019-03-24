@@ -19,11 +19,9 @@ export default class BeerList extends Component {
     let newBeers = this.state.beers.map(val =>
       val.id === beer.id ? beer : val
     );
-    let newFavorites = this.state.favorites;
-
-    newFavorites = beer.isFavorite
-      ? newFavorites.concat(beer)
-      : newFavorites.filter(val => val.id !== beer.id);
+    let newFavorites = beer.isFavorite
+      ? this.state.favorites.concat(beer)
+      : this.state.favorites.filter(val => val.id !== beer.id);
 
     sessionStorage.setItem("favorites", JSON.stringify(newFavorites));
     this.setState(() => ({ beers: newBeers, favorites: newFavorites }));
@@ -33,8 +31,34 @@ export default class BeerList extends Component {
     this.setState(() => ({ modalBeer: null }));
   };
 
+  componentDidMount() {
+    document.addEventListener(
+      "keydown",
+      event => (event.keyCode === 27 ? this.handleCloseModal() : null),
+      false
+    );
+
+    // Update this.state.beers so that its elements (beers) have isFavorite
+    // property set to "true" if said element is in this.state.favorites
+    let newBeers = this.state.beers.map(beer => {
+      beer.isFavorite = this.state.favorites.some(val => val.id === beer.id);
+
+      return beer;
+    });
+
+    this.setState(() => ({ beers: newBeers }));
+  }
+
+  componentWillUnmount() {
+    document.addEventListener(
+      "keydown",
+      event => (event.keyCode === 27 ? this.handleCloseModal() : null),
+      false
+    );
+  }
+
   render() {
-    const { beers, favorites, modalBeer } = this.state;
+    const { beers, modalBeer } = this.state;
 
     return (
       <Fragment>

@@ -9,10 +9,6 @@ export default class Favorites extends Component {
     favorites: JSON.parse(sessionStorage.getItem("favorites")) || null
   };
 
-  updateFavorites = () => {
-    let favorites = JSON.parse(sessionStorage.getItem("favorites"));
-  };
-
   render() {
     const { favorites } = this.state;
     return (

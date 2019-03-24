@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import emptyheart from "../images/heart outline.svg";
+import heart from "../images/heart solid.svg";
 
 export default class Card extends Component {
   render() {
     const { beer } = this.props;
     return (
       <div className="card">
-        <img src={emptyheart} className="card__heart" alt="like heart" />
+        <img
+          src={beer.isFavorite ? heart : emptyheart}
+          className="card__heart"
+          alt="like heart"
+        />
         <div className="card__img-container">
           <img src={beer.image_url} alt="beer logo" className="card__img" />
         </div>

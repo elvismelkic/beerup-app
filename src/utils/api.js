@@ -23,7 +23,8 @@ export function joinResponse() {
       if (isSuccess) {
         resolve(true);
       } else {
-        reject(new Error("There was a problem with your request."));
+        //reject(new Error("There was a problem with your request."));
+        resolve(false);
       }
     }, 1000);
   });

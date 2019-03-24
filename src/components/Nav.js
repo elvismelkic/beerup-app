@@ -18,7 +18,7 @@ export default class Nav extends Component {
       <Fragment>
         <nav className="nav">
           <div className="nav__container">
-            <NavLink to="/" className="nav__logo-container" exact>
+            <NavLink to="/" exact className="nav__logo-container">
               <img
                 src={symbol}
                 className="nav__logo nav__logo-part1"
@@ -34,8 +34,8 @@ export default class Nav extends Component {
               <li className="nav__item">
                 <NavLink
                   to="/"
-                  className="nav__link"
                   exact
+                  className="nav__link"
                   activeClassName="nav__link--active"
                 >
                   Home
@@ -44,15 +44,15 @@ export default class Nav extends Component {
               <li className="nav__item">
                 <NavLink
                   to="/favorites"
-                  className="nav__link"
                   exact
+                  className="nav__link"
                   activeClassName="nav__link--active"
                 >
                   Favorites
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink to="/join" className="nav__link" exact>
+                <NavLink to="/join" exact className="nav__link">
                   <Button fill={"transparent"} parent={"nav"}>
                     Join
                   </Button>

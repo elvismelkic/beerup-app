@@ -54,7 +54,7 @@ export default class Main extends Component {
             <div className="header__right">
               <img src={illustration} className="header__img" alt="logo" />
             </div>
-            <NavLink to="/join" exact>
+            <NavLink to="/join" exact className="u-display-block">
               <Button fill={"filled"} parent={"header"}>
                 Join beerup
               </Button>
