@@ -27,17 +27,16 @@ export default class BeerList extends Component {
     this.setState(() => ({ beers: newBeers, favorites: newFavorites }));
   };
 
-  handleCloseModal = () => {
-    this.setState(() => ({ modalBeer: null }));
+  handleCloseModal = event => {
+    let modal = event.target.parentNode;
+    modal.classList.remove("modal--active");
+
+    setTimeout(() => {
+      this.setState(() => ({ modalBeer: null }));
+    }, 600);
   };
 
   componentDidMount() {
-    document.addEventListener(
-      "keydown",
-      event => (event.keyCode === 27 ? this.handleCloseModal() : null),
-      false
-    );
-
     // Update this.state.beers so that its elements (beers) have isFavorite
     // property set to "true" if said element is in this.state.favorites
     let newBeers = this.state.beers.map(beer => {
@@ -49,27 +48,11 @@ export default class BeerList extends Component {
     this.setState(() => ({ beers: newBeers }));
   }
 
-  componentWillUnmount() {
-    document.addEventListener(
-      "keydown",
-      event => (event.keyCode === 27 ? this.handleCloseModal() : null),
-      false
-    );
-  }
-
   render() {
     const { beers, modalBeer } = this.state;
 
     return (
       <Fragment>
-        {/* Darken the background when the modal appears.
-            onClick closes opened modal when background is clicked. */}
-        <div
-          className={`dark-background ${
-            modalBeer ? "dark-background--active" : null
-          }`}
-          onClick={this.handleCloseModal}
-        />
         <section className="main__beer">
           <h2 className="main__heading">{this.props.title}</h2>
           <ul className="card__list">

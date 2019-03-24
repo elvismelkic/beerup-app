@@ -1,14 +1,37 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Button from "./Button";
 import emptyheart from "../images/heart outline.svg";
 import heart from "../images/heart solid.svg";
 
 export default class Modal extends Component {
+  componentDidMount() {
+    document.addEventListener(
+      "keydown",
+      event => (event.keyCode === 27 ? this.props.closeModal() : null),
+      false
+    );
+  }
+
+  componentWillUnmount() {
+    document.addEventListener(
+      "keydown",
+      event => (event.keyCode === 27 ? this.props.closeModal() : null),
+      false
+    );
+  }
   render() {
     const beer = this.props.beer || null;
 
     return (
-      <div>
+      <Fragment>
+        {/* Darken the background when the modal appears.
+          onClick closes opened modal when background is clicked. */}
+        <div
+          className={`modal__dark-background ${
+            beer ? "modal__dark-background--active" : null
+          }`}
+          onClick={this.handleCloseModal}
+        />
         {beer === null ? (
           <div className="modal" />
         ) : (
@@ -50,7 +73,7 @@ export default class Modal extends Component {
             </div>
           </div>
         )}
-      </div>
+      </Fragment>
     );
   }
 }
