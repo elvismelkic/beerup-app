@@ -1,10 +1,11 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Button from "./Button";
 import emptyheart from "../images/heart outline.svg";
 import heart from "../images/heart solid.svg";
 
 export default class Modal extends Component {
   componentDidMount() {
+    // Close modal when escape key is pressed.
     document.addEventListener(
       "keydown",
       event => (event.keyCode === 27 ? this.props.closeModal() : null),
@@ -23,19 +24,19 @@ export default class Modal extends Component {
     const beer = this.props.beer || null;
 
     return (
-      <Fragment>
+      <div className="modal">
         {/* Darken the background when the modal appears.
-          onClick closes opened modal when background is clicked. */}
+            onClick closes opened modal when background is clicked. */}
         <div
           className={`modal__dark-background ${
             beer ? "modal__dark-background--active" : null
           }`}
-          onClick={this.handleCloseModal}
+          onClick={this.props.closeModal}
         />
         {beer === null ? (
-          <div className="modal" />
+          <div className="modal__container" />
         ) : (
-          <div className="modal modal--active">
+          <div className="modal__container modal__container--active">
             <img
               src={beer.isFavorite ? heart : emptyheart}
               className="modal__heart"
@@ -73,7 +74,7 @@ export default class Modal extends Component {
             </div>
           </div>
         )}
-      </Fragment>
+      </div>
     );
   }
 }

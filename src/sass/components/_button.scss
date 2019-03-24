@@ -67,6 +67,10 @@
   }
 
   &--modal {
+    color: $color-black;
+    background-color: $color-grey-light;
+    border: 3px solid $color-grey-light;
+
     @include respond(phone) {
       width: 20rem;
       font-size: 1.2rem;

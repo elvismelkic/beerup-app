@@ -1,21 +1,5 @@
 .modal {
-  width: 60rem;
-  height: 50rem;
-  visibility: hidden;
-  opacity: 0;
-  padding: 0 5rem;
-  background-color: $color-white;
-  border-radius: 0.5rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.1);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  transition: all 0.4s ease-out 0.2s;
-  z-index: 9999;
+  position: relative;
 
   &__dark-background {
     position: fixed;
@@ -34,18 +18,38 @@
     }
   }
 
-  @include respond(phone) {
-    flex-direction: column;
-    padding: 0 1rem;
-  }
-
-  &--active {
-    visibility: visible;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+  &__container {
+    width: 60rem;
+    height: 50rem;
+    visibility: hidden;
+    opacity: 0;
+    padding: 0 5rem;
+    background-color: $color-white;
+    border-radius: 0.5rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.3s ease-out;
+    z-index: 9999;
 
     @include respond(phone) {
-      width: 90%;
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+
+      @include respond(phone) {
+        width: 90%;
+      }
     }
   }
 

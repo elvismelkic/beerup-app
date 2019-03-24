@@ -27,13 +27,8 @@ export default class BeerList extends Component {
     this.setState(() => ({ beers: newBeers, favorites: newFavorites }));
   };
 
-  handleCloseModal = event => {
-    let modal = event.target.parentNode;
-    modal.classList.remove("modal--active");
-
-    setTimeout(() => {
-      this.setState(() => ({ modalBeer: null }));
-    }, 600);
+  handleCloseModal = () => {
+    this.setState(() => ({ modalBeer: null }));
   };
 
   componentDidMount() {
