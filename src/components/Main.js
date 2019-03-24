@@ -1,18 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { NavLink } from "react-router-dom";
+import BeerList from "./BeerList";
 import Button from "./Button";
-import Modal from "./Modal";
-import Card from "./Card";
-import crate from "../images/crate.svg";
+import Crate from "./Crate";
+import cap from "../images/cap.svg";
 import illustration from "../images/illustration.svg";
 import { fetchBeer } from "../utils/api.js";
 
 export default class Main extends Component {
   state = {
-    beer: null,
+    beers: null,
     loading: true,
-    error: null,
-    modalBeer: null,
-    activeCrate: "One"
+    error: null
   };
 
   updateBeer = async () => {
@@ -21,7 +20,9 @@ export default class Main extends Component {
       const response = await fetchBeer();
 
       this.setState(() => ({
-        beer: response.filter(beer => beer.image_url.indexOf("keg.png") === -1),
+        beers: response.filter(
+          beer => beer.image_url.indexOf("keg.png") === -1
+        ),
         loading: false
       }));
     } catch (error) {
@@ -32,106 +33,48 @@ export default class Main extends Component {
     }
   };
 
-  handleClick = id => {
-    const beer = this.state.beer.filter(beer => beer.id === id);
-
-    this.setState(() => ({ modalBeer: beer }));
-  };
-
-  handleCloseModal = () => {
-    this.setState(() => ({ modalBeer: null }));
-  };
-
-  handleCrateSelect = event => {
-    let crate = event.target.textContent;
-
-    this.setState(() => ({ activeCrate: crate }));
-  };
-
   componentDidMount() {
     this.updateBeer();
   }
 
   render() {
-    const { error, loading, beer, modalBeer, activeCrate } = this.state;
-    console.log(beer);
+    const { beers, loading, error } = this.state;
     return (
-      <div>
+      <Fragment>
+        <header className="header">
+          <div className="header__container">
+            <div className="header__left">
+              <h2 className="heading heading--secondary">
+                The beerster pro 2.0
+              </h2>
+              <h1 className="heading heading--primary">
+                Join our famous beerup!
+              </h1>
+            </div>
+            <div className="header__right">
+              <img src={illustration} className="header__img" alt="logo" />
+            </div>
+            <NavLink to="/join" exact>
+              <Button fill={"filled"} parent={"header"}>
+                Join beerup
+              </Button>
+            </NavLink>
+            <img src={cap} className="header__cap" alt="beer cap" />
+          </div>
+        </header>
         {error !== null ? (
           <h1>{error}</h1>
         ) : loading === false ? (
           <main className="main">
             <div className="main__container">
-              {/* Darken the background when the modal appears.
-                onClick closes opened modal when background is clicked. */}
-              <div
-                className={`dark-background ${
-                  modalBeer ? "dark-background--active" : null
-                }`}
-                onClick={this.handleCloseModal}
-              />
-              <section className="main__beer">
-                <h2 className="main__heading">Beer</h2>
-                <ul className="beer__list">
-                  {beer.map(beer => (
-                    <li key={beer.id} onClick={() => this.handleClick(beer.id)}>
-                      <Card beer={beer} />
-                    </li>
-                  ))}
-                </ul>
-                <Modal beer={modalBeer} closeModal={this.handleCloseModal} />
-              </section>
-              <section className="main__crate">
-                <h2 className="main__heading">Crate</h2>
-                <ul className="crate__list">
-                  <li
-                    className={
-                      activeCrate === "One"
-                        ? "crate__item crate__item--active"
-                        : "crate__item"
-                    }
-                    onClick={this.handleCrateSelect}
-                  >
-                    One
-                  </li>
-                  <li
-                    className={
-                      activeCrate === "Two"
-                        ? "crate__item crate__item--active"
-                        : "crate__item"
-                    }
-                    onClick={this.handleCrateSelect}
-                  >
-                    Two
-                  </li>
-                  <li
-                    className={
-                      activeCrate === "Three"
-                        ? "crate__item crate__item--active"
-                        : "crate__item"
-                    }
-                    onClick={this.handleCrateSelect}
-                  >
-                    Three
-                  </li>
-                </ul>
-                <div className="crate__img-container">
-                  <img src={crate} alt="crate" className="crate__img" />
-                </div>
-                <p className="crate__quote-text">
-                  The crate will remain forever empty due to the lack of
-                  functionality.
-                </p>
-                <p className="crate__quote-source">
-                  &mdash; Captain Disappointment
-                </p>
-              </section>
+              <BeerList title="Beers" beers={beers} />
+              <Crate />
             </div>
           </main>
         ) : (
           <h1>LOADING</h1>
         )}
-      </div>
+      </Fragment>
     );
   }
 }

@@ -10,6 +10,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     @include respond(phone) {
       flex-direction: column;
@@ -23,6 +24,10 @@
     @include respond(phone) {
       text-align: center;
     }
+  }
+
+  &__crate {
+    width: 25rem;
   }
 
   &__beer,

@@ -1,26 +1,24 @@
 import React, { Component } from "react";
-import Button from "./Button";
-import Modal from "./Modal";
-import illustration from "../images/illustration.svg";
-import { fetchBeer } from "../utils/api.js";
+import emptyheart from "../images/heart outline.svg";
 
 export default class Card extends Component {
   render() {
     const { beer } = this.props;
     return (
-      <div className="beer__card">
-        <div className="beer__img-container">
-          <img src={beer.image_url} alt="beer logo" className="beer__img" />
+      <div className="card">
+        <img src={emptyheart} className="card__heart" alt="like heart" />
+        <div className="card__img-container">
+          <img src={beer.image_url} alt="beer logo" className="card__img" />
         </div>
-        <div className="beer__info">
-          <p className="beer__name">{beer.name}</p>
-          <p className="beer__info-row">
-            <span className="beer__info-name">IBU</span>
-            <span className="beer__info-value">{beer.ibu}</span>
+        <div className="card__info">
+          <p className="card__name">{beer.name}</p>
+          <p className="card__info-row">
+            <span className="card__info-name">IBU</span>
+            <span className="card__info-value">{beer.ibu}</span>
           </p>
-          <p className="beer__info-row">
-            <span className="beer__info-name">ABV</span>
-            <span className="beer__info-value">{beer.abv}%</span>
+          <p className="card__info-row">
+            <span className="card__info-name">ABV</span>
+            <span className="card__info-value">{beer.abv}%</span>
           </p>
         </div>
       </div>

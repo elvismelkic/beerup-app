@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import Button from "./Button";
 import emptyheart from "../images/heart outline.svg";
+import heart from "../images/heart solid.svg";
 
 export default class Modal extends Component {
   render() {
-    const beer = this.props.beer ? this.props.beer[0] : null;
+    const beer = this.props.beer || null;
+
     return (
       <div>
         {beer === null ? (
           <div className="modal" />
         ) : (
           <div className="modal modal--active">
-            <img src={emptyheart} className="modal__heart" alt="like heart" />
+            <img
+              src={beer.isFavorite ? heart : emptyheart}
+              className="modal__heart"
+              alt="like heart"
+              onClick={() => this.props.toggleFavorite(beer)}
+            />
             <button className="modal__exit" onClick={this.props.closeModal}>
               &#10005;
             </button>
