@@ -17,6 +17,7 @@
     width: 50%;
     margin: 2rem 1rem;
     padding: 1rem;
+    font-family: inherit;
     font-size: 1.2rem;
     border: 1px solid $color-grey-light;
     border-radius: 5px;
@@ -34,6 +35,7 @@
   &__radio-label {
     display: flex;
     margin: 1rem 0;
+    font-family: inherit;
     font-size: 1.2rem;
     cursor: pointer;
   }
@@ -83,8 +85,8 @@
     width: 100%;
     height: 15rem;
     padding: 1rem;
-    font-size: 1.2rem;
     font-family: inherit;
+    font-size: 1.2rem;
     border: 1px solid $color-grey-light;
     border-radius: 5px;
   }
@@ -139,7 +141,7 @@
     }
   }
 
-  // when checkbox-input is checked, it selects the child of the adjacent sibling
+  // when checkbox-input is checked, it selects the adjacent sibling
   &__checkbox-input:checked + &__checkbox-button::before,
   &__checkbox-input:checked + &__checkbox-button::after {
     opacity: 1;

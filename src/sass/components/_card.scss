@@ -31,6 +31,11 @@
 
     @include respond(phone) {
       flex-wrap: nowrap;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
     }
   }
 

@@ -93,4 +93,11 @@
     left: 50%;
     transform: translate(-50%, 50%);
   }
+
+  &--disabled {
+    color: $color-black;
+    background-color: $color-grey-light;
+    border: 3px solid $color-grey-light;
+    cursor: default;
+  }
 }

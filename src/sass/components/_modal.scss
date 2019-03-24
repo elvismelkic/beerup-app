@@ -167,6 +167,7 @@
     line-height: 2;
 
     @include respond(phone) {
+      text-align: center;
       width: 100%;
       font-size: 1.5rem;
       line-height: 1.5;

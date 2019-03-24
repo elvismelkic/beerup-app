@@ -220,7 +220,11 @@ export default class Join extends Component {
                       <span className="join__checkbox-button" />
                       Remind me one day before this beerup!
                     </label>
-                    <Button fill={"filled"} parent={"form"}>
+                    <Button
+                      isDisabled={!fullName || !email || !phone}
+                      fill={"filled"}
+                      parent={"form"}
+                    >
                       Join up
                     </Button>
                   </form>

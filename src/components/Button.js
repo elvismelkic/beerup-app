@@ -4,7 +4,16 @@ export default class Button extends Component {
   render() {
     return (
       <button
-        className={"btn btn--" + this.props.fill + " btn--" + this.props.parent}
+        className={
+          this.props.isDisabled
+            ? "btn btn--" +
+              this.props.fill +
+              " btn--" +
+              this.props.parent +
+              " btn--disabled"
+            : "btn btn--" + this.props.fill + " btn--" + this.props.parent
+        }
+        disabled={this.props.isDisabled}
       >
         {this.props.children}
       </button>

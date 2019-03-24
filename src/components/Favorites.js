@@ -6,7 +6,7 @@ import illustration from "../images/illustration.svg";
 
 export default class Favorites extends Component {
   state = {
-    favorites: JSON.parse(sessionStorage.getItem("favorites")) || null
+    favorites: JSON.parse(sessionStorage.getItem("favorites")) || []
   };
 
   render() {
