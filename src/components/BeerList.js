@@ -48,7 +48,9 @@ export default class BeerList extends Component {
 
         return beer;
       })
-      .sort((currentBeer, nextBeer) => currentBeer.name > nextBeer.name);
+      .sort((currentBeer, nextBeer) =>
+        currentBeer.name.toUpperCase() < nextBeer.name.toUpperCase() ? -1 : 1
+      );
 
     this.setState(() => ({ beers: newBeers }));
   }
@@ -58,17 +60,21 @@ export default class BeerList extends Component {
       let sortedBeers = this.state.beers.sort((currentBeer, nextBeer) => {
         switch (this.state.sortBy) {
           case "name asc":
-            return currentBeer.name > nextBeer.name;
+            return currentBeer.name.toUpperCase() < nextBeer.name.toUpperCase()
+              ? -1
+              : 1;
           case "name desc":
-            return currentBeer.name < nextBeer.name;
+            return currentBeer.name.toUpperCase() < nextBeer.name.toUpperCase()
+              ? 1
+              : -1;
           case "abv asc":
-            return currentBeer.abv > nextBeer.abv;
+            return currentBeer.abv - nextBeer.abv;
           case "abv desc":
-            return currentBeer.abv < nextBeer.abv;
+            return nextBeer.abv - currentBeer.abv;
           case "ibu asc":
-            return currentBeer.ibu > nextBeer.ibu;
+            return currentBeer.ibu - nextBeer.ibu;
           default:
-            return currentBeer.ibu < nextBeer.ibu;
+            return nextBeer.ibu - currentBeer.ibu;
         }
       });
 
