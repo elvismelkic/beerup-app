@@ -4,21 +4,15 @@ import emptyheart from "../images/heart outline.svg";
 import heart from "../images/heart solid.svg";
 
 export default class Modal extends Component {
+  closeModal = event => (event.keyCode === 27 ? this.props.closeModal() : null);
+
   componentDidMount() {
     // Close modal when escape key is pressed.
-    document.addEventListener(
-      "keydown",
-      event => (event.keyCode === 27 ? this.props.closeModal() : null),
-      false
-    );
+    document.addEventListener("keydown", this.closeModal, false);
   }
 
   componentWillUnmount() {
-    document.addEventListener(
-      "keydown",
-      event => (event.keyCode === 27 ? this.props.closeModal() : null),
-      false
-    );
+    document.removeEventListener("keydown", this.closeModal, false);
   }
   render() {
     const beer = this.props.beer || null;
