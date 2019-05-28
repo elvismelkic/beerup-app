@@ -1,3 +1,7 @@
+This simple project is just a mockup to show my React knowledge.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
